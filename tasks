@@ -1,0 +1,17 @@
+1. create a login page and logged in using db.json user details
+2. Create landing page with NavRoutes Menus(Home, Service, Group)
+3. Create service page with datatable and CRUD operations
+4. use data.json for table records
+
+
+    // refer to video day 20 session 2 --- 1:45
+
+
+    folder - fullstack assignment
+                client
+
+
+go through CORS , 
+
+const cors = require('cors')
+app.use(cors())
