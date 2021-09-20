@@ -3,15 +3,44 @@
 3. Create service page with datatable and CRUD operations
 4. use data.json for table records
 
+   // refer to video day 20 session 2 --- 1:45
 
-    // refer to video day 20 session 2 --- 1:45
+   folder - fullstack assignment
+   client
 
-
-    folder - fullstack assignment
-                client
-
-
-go through CORS , 
+go through CORS ,
 
 const cors = require('cors')
 app.use(cors())
+
+------------------------------- task 2 -------------------------
+day 21 session 1
+
+set an express app
+perform CRUD
+
+[{"id":1,"name":"sam","city":"bangalore","age":21}]
+
+GET - /studends , ------------- should return array of response , from the json file
+
+POST - /students , --- should return {notice, student{object}}
+{
+"name":"daniel",
+"age": 21,
+"city":"bangalore"
+}
+
+should also write to the file students.json
+
+GET - /students/id ------------- get the student object , else empty object -- {}
+
+PUT - /students/id - update student name ----- should return {note, student{}} , --- else {}
+{
+"name":"dan"
+}
+
+the same should also be updated in the json file
+
+DELETE - /students/id -------- return {notice}
+
+should also be removed from json file

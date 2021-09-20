@@ -1,0 +1,12 @@
+ if a user provides a name , return the gender
+
+ localhost:3010/users/gender?name=akshay
+
+ should return 
+
+ {
+     name:"akshay",
+     gender:"male"
+ }
+
+ 
