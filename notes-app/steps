@@ -1,0 +1,21 @@
+1. mkdir notes-app
+2. cd notes-app
+3. npm init -y
+4. npm install --save express
+5. create index.js file
+
+
+mongodb runs on the server 27017
+
+front end to backend we use http protocol
+
+backend to database we make use of mongodb protocol
+
+between frontend and database , backend is the middleware
+
+similarly we need to set up a middleware between db and backend ------ mongodb nodejs driver is the middleware
+------------------- similar one is mongoose
+
+nodejs driver is a raw form given just like the http module
+
+so, we make use of mongoose which is built on top of node js driver , just like express is built on top of node http module
