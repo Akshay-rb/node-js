@@ -1,0 +1,20 @@
+1. create a model called as category - one property called as name
+
+1. create a new file called as category.js
+2. import mongoose
+3. create a schema
+4. create a model
+5. export the model
+
+2. create a controller - categoriesController
+
+GET - /categories - to begin []
+
+POST - /categories
+- {
+name:'sports'
+}
+
+GET - /categories/Id
+
+{}

@@ -1,0 +1,41 @@
+1. set up the backend project for ticket master application
+
+2. set up and configure express
+
+3. set up application as per MVC
+
+4. create model for 
+        Customer 
+            - name
+            - email
+            - mobile
+
+5. set up routes for Customers for CRUD
+
+6. create model for
+        - Department
+            - name
+
+7. set up routes for Departments for CRUD 
+
+8. create model 
+         - Employee
+            - name
+            -email
+            -mobile
+            -department - Schema.Types.ObjectId
+
+9. set up routes for employees for CRUD
+
+10. create model called 
+        - Ticket
+            -customer - Schema.Types.ObjectId
+            -department - Schema.Types.ObjectId
+            -employees - [ObjectId]
+            -message
+            -priority
+            -isResolved - Boolean
+            -code
+
+11. set up routes for tickets for CRUD            
+
