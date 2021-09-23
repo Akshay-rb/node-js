@@ -1,4 +1,5 @@
 const Category = require('../models/category')
+const Note = require('../models/note')
 
 module.exports.list = (req,res)=>{
     Category.find()
@@ -14,19 +15,62 @@ module.exports.list = (req,res)=>{
         })
 }
 
-module.exports.show =(req,res)=>{
+// module.exports.show =(req,res)=>{
+//     const id = req.params.id
+//     Category.findById(id)
+//             .then((category)=>{
+//                 if(category){
+//                     res.json(category)
+//                 }else{
+//                     res.json({})
+//                 }
+//             })
+//             .catch((err)=>{
+//                 res.json(err)
+//             })
+// }
+
+module.exports.show= (req,res)=>{
     const id = req.params.id
-    Category.findById(id)
-            .then((category)=>{
-                if(category){
-                    res.json(category)
-                }else{
-                    res.json({})
-                }
+    // Category.findById(id)
+    //         .then((category)=>{
+    //             if(category){
+    //                 Note.find({categoryId :category.id })
+    //                     .then((notes)=>{
+    //                         if(notes){
+    //                             res.json({
+    //                                 notes,
+    //                                 category
+    //                             })
+    //                         }else{
+    //                             res.json({})
+    //                         }
+    //                     })
+    //                     .catch((err)=>{
+    //                         res.json(err)
+    //                     })
+    //             }else{
+    //                 res.json({})
+    //             }
+    //         })
+    //         .catch((err)=>{
+    //             res.json(err)
+    //         })
+
+// for much more optimised way --------- Promise.all() ------- SUPER IMPORTANT -----------
+
+    Promise.all([Category.findById(id), Note.find({categoryId:id})])
+        .then((values)=>{
+            const [category,notes] = values
+            res.json({
+                category,
+                notes
             })
-            .catch((err)=>{
-                res.json(err)
-            })
+        })
+        .catch((err)=>{
+            res.json(err)
+        })
+
 }
 
 module.exports.create = (req,res)=>{

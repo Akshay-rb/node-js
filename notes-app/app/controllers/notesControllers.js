@@ -1,5 +1,6 @@
 // const Note = require('../models/note')
 const Note = require('../models/note')
+const Category = require('../models/category')
 
 
 // app.get('/', (req,res)=>{
@@ -10,7 +11,7 @@ const Note = require('../models/note')
 
 // list
 module.exports.list = (req,res)=>{
-    Note.find()                     // find() - returns promise
+    Note.find().populate('categoryId')                     // find() - returns promise
         .then((notes)=>{
             res.json(notes)
         })
@@ -19,19 +20,48 @@ module.exports.list = (req,res)=>{
         })
 }
 
+
 module.exports.show = (req,res)=>{
     const id = req.params.id
+    // - to controll fields to be populated from category - populate('categoryId', ['name']) // [] - will contain the fields to be populated  
+    // Note.findById(id).populate('categoryId')
+    //     .then((note)=>{
+    //         if(note){
+    //             res.json(note)
+    //         }else{
+    //             res.json({})
+    //         }
+    //     })
+    //     .catch((error)=>{
+    //         res.json(error)
+    //     })    
+
+    // without using populate method
+
     Note.findById(id)
         .then((note)=>{
             if(note){
-                res.json(note)
+                Category.findById(note.categoryId)
+                        .then((category)=>{
+                            const newNote = Object.assign({}, note.toObject())
+                            if(category){
+                                // note.categoryId = category // OR
+                                newNote.categoryId = category
+                                res.json(newNote)
+                            }else{
+                                res.json({})
+                            }
+                        })
+                        .catch((err)=>{
+                            res.json(err)
+                        })
             }else{
                 res.json({})
             }
         })
-        .catch((error)=>{
-            res.json(error)
-        })    
+        .catch((err)=>{
+            res.json(err)
+        })
 }
 
 // to export individual controller
