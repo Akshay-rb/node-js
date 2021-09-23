@@ -13,3 +13,16 @@ mongoose.connect('mongodb://localhost:27017/notes-app', {useNewUrlParser:true}) 
     })
 
 module.exports = mongoose    
+
+// const configureDB = ()=>{
+//     mongoose.Promise = global.Promise
+//     mongoose.connect('mongodb://localhost:27017/notes-app', {useNewUrlParser:true}) // useNewUrlParser is optional
+//             .then(()=>{
+//                 console.log('successfully connected to the db')
+//             })
+//             .catch((err)=>{
+//                 console.log('an error occured', err)
+//             })
+// }
+
+// module.exports = configureDB

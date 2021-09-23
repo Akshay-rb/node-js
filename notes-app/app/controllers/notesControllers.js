@@ -11,7 +11,7 @@ const Category = require('../models/category')
 
 // list
 module.exports.list = (req,res)=>{
-    Note.find().populate('categoryId')                     // find() - returns promise
+    Note.find().populate('categoryId').sort({createdAt:-1})                     // find() - returns promise
         .then((notes)=>{
             res.json(notes)
         })

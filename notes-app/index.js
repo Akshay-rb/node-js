@@ -6,6 +6,7 @@
 
 const express = require('express')
 const mongoose = require('./config/database')
+const configDB = require('./config/database')
 const router = require('./config/routes')
 const app = express()
 app.use(express.json())
