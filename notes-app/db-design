@@ -1,0 +1,57 @@
+building a blog data
+
+articles
+    _id
+    createdAt
+    author
+    title
+    body
+    categoryId
+    publish date
+    isPublished
+    likes:[]
+        comments
+            _id
+            title
+            body
+            articleId --------- this might not be needed
+            userId
+
+
+
+author
+    name
+    _id
+    bio
+    email
+    profile_url
+    followers:[]
+
+                                        articles
+
+
+# comments
+#     _id
+#     title
+#     body
+#     articleId
+#     userId
+
+categories 
+     _idname
+     description
+     image
+
+
+users
+
+
+nested routes
+
+axios.post('/articles/123/comments',formData,{})
+
+routes at backend
+
+router.post('/articles/:id/comments',articleController.createComment)
+router.put('/articles/:id/comments/:commentId',articleController.updateComment)
+router.delete('/articles/:id/comments/:commentId',articleController.deleteComment)
